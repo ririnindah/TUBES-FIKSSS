@@ -5,6 +5,7 @@
 
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -13,20 +14,19 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" style="display: flex; align-items: center;">
-                <a href="{{ route('dashboard_mhs') }}">
-                    <img style="margin-left: -5px;" src="https://i.ibb.co/yBG6mSK/Simone-4.png" width="50" height="50" alt="">
-                </a>
+              <a href="{{ route('dashboard_mhs') }}">
+                  <img style="margin-left: -5px;" src="https://i.ibb.co/yBG6mSK/Simone-4.png" width="50" height="50" alt="">
+              </a>
             </a>
         </div>
 
-        {{-- navbar bagian kanan --}}
-                {{-- logout --}}
+        {{-- logout --}}
         <ul class="nav navbar-right top-nav">
             <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <i class="fa fa-envelope"></i>
                 <b class="caret"></b>
-            </a>
+              </a>
                 <ul class="dropdown-menu message-dropdown">
                     <li class="message-preview">
                     <a href="#">
@@ -126,7 +126,7 @@
                 </li>
                 <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <i class="fa fa-user"></i> {{ $attribute->nama }} <b class="caret"></b>
+                    <i class="fa fa-user"></i> {{ $attribute -> nama }} <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
                     <li>
@@ -136,7 +136,8 @@
                 </ul>
                 </li>
             </ul>
-        <!-- .navbar-collapse -->
+
+
     </nav>
 
 

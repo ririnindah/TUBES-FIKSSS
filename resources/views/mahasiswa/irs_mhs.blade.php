@@ -1,48 +1,166 @@
 @extends('template') @section('content') <div id="wrapper">
-    <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" style="display: flex; align-items: center;">
-          <img style="margin-left: 10px;" src="https://i.ibb.co/yBG6mSK/Simone-4.png" width="50" height="50" alt="">
-          <span style="margin-left: 5px;"></span>
-        </a>
-      </div>
-      <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-      <div class="collapse navbar-collapse navbar-ex1-collapse">
-        <ul class="nav navbar-nav side-nav">
-          <li class="active">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" style="display: flex; align-items: center;">
               <a href="{{ route('dashboard_mhs') }}">
-                  <i class="fa fa-fw fa-dashboard"></i> Dashboard
+                  <img style="margin-left: -5px;" src="https://i.ibb.co/yBG6mSK/Simone-4.png" width="50" height="50" alt="">
               </a>
-          </li>
-          <li>
-            <a href="">
-              <i class="fa fa-fw fa-columns"></i> IRS </a>
-          </li>
-          <li>
-            <a href="">
-              <i class="fa fa-fw fa-file-text-o"></i> KHS </a>
-          </li>
-          <li>
-            <a href="">
-              <i class="fa fa-fw fa-tasks"></i> PKL </a>
-          </li>
-          <li>
-            <a href="">
-              <i class="fa fa-fw fa-newspaper-o"></i> Skripsi </a>
-          </li>
-        </ul>
-      </div>
-      <!-- /.navbar-collapse -->
+            </a>
+        </div>
 
+        {{-- logout --}}
+        <ul class="nav navbar-right top-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-envelope"></i>
+                <b class="caret"></b>
+              </a>
+                <ul class="dropdown-menu message-dropdown">
+                    <li class="message-preview">
+                    <a href="#">
+                        <div class="media">
+                        <span class="pull-left">
+                            <img class="media-object" src="http://placehold.it/50x50" alt="">
+                        </span>
+                        <div class="media-body">
+                            <h5 class="media-heading">
+                            <strong>Mahasiswa</strong>
+                            </h5>
+                            <p class="small text-muted">
+                            <i class="fa fa-clock-o"></i> Yesterday at 4:32 PM
+                            </p>
+                            <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                        </div>
+                        </div>
+                    </a>
+                    </li>
+                    <li class="message-preview">
+                    <a href="#">
+                        <div class="media">
+                        <span class="pull-left">
+                            <img class="media-object" src="http://placehold.it/50x50" alt="">
+                        </span>
+                        <div class="media-body">
+                            <h5 class="media-heading">
+                            <strong>Deepartemen</strong>
+                            </h5>
+                            <p class="small text-muted">
+                            <i class="fa fa-clock-o"></i> Yesterday at 4:32 PM
+                            </p>
+                            <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                        </div>
+                        </div>
+                    </a>
+                    </li>
+                    <li class="message-preview">
+                    <a href="#">
+                        <div class="media">
+                        <span class="pull-left">
+                            <img class="media-object" src="http://placehold.it/50x50" alt="">
+                        </span>
+                        <div class="media-body">
+                            <h5 class="media-heading">
+                            <strong>Mahasiswa</strong>
+                            </h5>
+                            <p class="small text-muted">
+                            <i class="fa fa-clock-o"></i> Yesterday at 4:32 PM
+                            </p>
+                            <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                        </div>
+                        </div>
+                    </a>
+                    </li>
+                    <li class="message-footer">
+                    <a href="#">Read All New Messages</a>
+                    </li>
+                </ul>
+
+                </li>
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-bell"></i>
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu alert-dropdown">
+                    <li>
+                    <a href="#">Alert Name <span class="label label-default">Alert Badge</span>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="#">Alert Name <span class="label label-primary">Alert Badge</span>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="#">Alert Name <span class="label label-success">Alert Badge</span>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="#">Alert Name <span class="label label-info">Alert Badge</span>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="#">Alert Name <span class="label label-warning">Alert Badge</span>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="#">Alert Name <span class="label label-danger">Alert Badge</span>
+                    </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                    <a href="#">View All</a>
+                    </li>
+                </ul>
+                </li>
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-user"></i> {{ $attribute -> nama }} <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                    <a href="/logout">
+                        <i class="fa fa-fw fa-power-off"></i> Log Out </a>
+                    </li>
+                </ul>
+                </li>
+            </ul>
+
+        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav side-nav">
+            <li class="active">
+                <a href="{{ route('dashboard_mhs') }}">
+                    <i class="fa fa-fw fa-dashboard"></i> Dashboard
+                </a>
+            </li>
+            <li>
+              <a href="">
+                <i class="fa fa-fw fa-columns"></i> IRS </a>
+            </li>
+            <li>
+              <a href="">
+                <i class="fa fa-fw fa-file-text-o"></i> KHS </a>
+            </li>
+            <li>
+              <a href="">
+                <i class="fa fa-fw fa-tasks"></i> PKL </a>
+            </li>
+            <li>
+              <a href="">
+                <i class="fa fa-fw fa-newspaper-o"></i> Skripsi </a>
+            </li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
     </nav>
+
     <div id="page-wrapper">
       <div class="container-fluid">
         <!-- Page Heading -->
@@ -115,11 +233,9 @@
                         <div class="form-group row">
                             <label for="scan" class="col-sm-2 col-form-label">Scan:</label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" id="scan" >
+                                <input type="file" class="form-control" id="scan" >
                             </div>
-                            <div class="card mt-1 mb-1 ml-1 mr-8" style="width: 15rem; height: 4rem;">
-                                <a href="#" class="btn" role="button" style="width: 15rem; height: 4rem;">Scan from device</a>
-                            </div>
+
                         </div>
                         <div class=" submit form-group row " style="margin-left: auto;">
                             <button type="submit" name="submit" value="submit" class="btn " type="button">Simpan</button>
@@ -129,7 +245,7 @@
               </div>
 
               <br>
-              <div class="panel panel-red" style="width: 26cm">
+              <div class="panel panel-red">
                 <div class="panel-heading">
                   <div>
                     <i class="fa fa-fw fa-columns fa-3x"></i>
