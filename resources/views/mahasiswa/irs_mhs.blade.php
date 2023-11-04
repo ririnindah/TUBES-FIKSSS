@@ -184,11 +184,14 @@
             <div class="card1">
               <div class="cardkhs ">
                 <div class="right-container">
-                    <form action="">
+
+                    {{-- FROM --}}
+                    <form action="{{ route('irs_import') }}" method="POST">
+                        @csrf
                         <div class="form-group row">
-                            <label for="status" class="col-sm-2 col-form-label">Semester:</label>
+                            <label for="semester" class="col-sm-2 col-form-label">Semester:</label>
                             <div class="col-sm-10">
-                                <select class="form-control" id="semester" style="width: 16cm">
+                                <select class="form-control @error('semester') is-invalid @enderror" name="semester" id="semester" style="width: 16cm">
                                     <option> </option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -206,34 +209,29 @@
                                     <option value="14">14</option>
                                 </select>
                             </div>
+                            @error('semester')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                         <br>
                         <div class="form-group row">
-                            <label for="status" class="col-sm-2 col-form-label">SKS diambil:</label>
+                            <label for="jumlah_sks" class="col-sm-2 col-form-label">SKS diambil:</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="status" style="width: 16cm">
+                                <input type="text" class="form-control @error('jumlah_sks') is-invalid @enderror" name="jumlah_sks" id="jumlah_sks" style="width: 16cm" value="{{ old('jumlah_sks') }}">
+                                @error('jumlah_sks')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
                         <br>
 
-
                         <div class="form-group row">
-                            <label for="status" class="col-sm-2 col-form-label">Status:</label>
-                            <div class="col-sm-10">
-                                <select class="form-control" id="status" style="width: 16cm">
-                                    <option> </option>
-                                    <option value="Aktif">Aktif</option>
-                                    <option value="Mangkir">Mangkir</option>
-                                    <option value="DO">DO</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <br>
-                        <div class="form-group row">
-                            <label for="scan" class="col-sm-2 col-form-label">Scan:</label>
+                            <label for="file_irs" class="col-sm-2 col-form-label">Scan IRS:</label>
                             <div class="col-sm-6">
-                                <input type="file" class="form-control" id="scan" >
+                                <input type="file" class="form-control @error('file_irs') is-invalid @enderror" name="file_irs" id="file_irs" accept = ".pdf" value="{{ old('file_irs') }}">
+                                @error('file_irs')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
 
                         </div>
@@ -258,7 +256,6 @@
                     </span>
                     <h4>Semester 1 </h4>
                     <p> Jumlah SKS : 24</p>
-                    <p> Status : Aktif</p>
                     <div class="clearfix"></div>
                   </div>
                 </a>

@@ -218,7 +218,7 @@
                         <br>
 
 
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label for="status" class="col-sm-2 col-form-label">Status:</label>
                             <div class="col-sm-10">
                                 <select class="form-control" id="status" style="width: 16cm">
@@ -228,9 +228,9 @@
                                     <option value="DO">DO</option>
                                 </select>
                             </div>
-                        </div>
+                        </div> --}}
 
-                        <br>
+                        {{-- <br> --}}
                         <div class="form-group row">
                             <label for="scan" class="col-sm-2 col-form-label">Scan:</label>
                             <div class="col-sm-6">

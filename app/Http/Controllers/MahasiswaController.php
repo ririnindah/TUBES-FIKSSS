@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 use App\Models\Province;
 use App\Models\Regency;
-use App\Models\District;
-use App\Models\Village;
 use App\Models\mahasiswa;
+use App\Models\Irs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -31,6 +30,27 @@ class MahasiswaController extends Controller
         // dd($attribute);
         return view('mahasiswa/irs_mhs',['attribute'=>$attribute]);
 
+    }
+
+    public function irs_import(Request $request)
+    {
+        $validateData = $request->validate([
+            'semester' => 'required',
+            'jumlah_sks'=> 'required',
+            'file_irs' => 'required|max:2048',
+        ]);
+
+        $validateData['mhs_id'] = Auth::guard('mhs')->user()->id;
+
+        if ($request->hasFile('file_irs')) {
+            $validateData['file_irs'] = $request->file('file_irs')->store('importIRS');
+        }
+
+        Irs::create($validateData);
+
+        return redirect()->route('dashboard_mhs');
+
+        // $attribute=Auth::guard('mhs')->user();
     }
 
     public function khs()
@@ -107,6 +127,8 @@ class MahasiswaController extends Controller
             'provinces'=>$provinces,
             'regencies'=>$regencies
         ]);
+
+
     }
 
     /**
@@ -114,7 +136,7 @@ class MahasiswaController extends Controller
      */
     public function update(Request $request, mahasiswa $mahasiswa)
 {
-
+    // dd($request);
     $provinces = Province::all();
     $regencies = Regency::all();
     $validateData = $request->validate([
@@ -125,8 +147,6 @@ class MahasiswaController extends Controller
         'kabupaten' => 'required',
         'status' => 'required',
         'angkatan' => 'required',
-        // 'fakultas' => 'required',
-        // 'departemen' => 'required',
         'jalur_masuk' => 'required',
         'alamat' => 'required'
     ]);
@@ -137,6 +157,15 @@ class MahasiswaController extends Controller
         $validateData['foto'] = $request->file('foto')->store('updateImages');
     }
 
+    $id_provinsi = $validateData['provinsi'];
+    $id_kabupaten = $validateData['kabupaten'];
+
+    $provinceName = Province::find($id_provinsi)->name;
+    $regencyName = Regency::find($id_kabupaten)->name;
+
+    $validateData['provinsi'] = $provinceName;
+    $validateData['kabupaten'] = $regencyName;
+
     $attribute=Auth::guard('mhs')->user();
     mahasiswa::where('id', $attribute->id)->update($validateData);
 
@@ -145,9 +174,19 @@ class MahasiswaController extends Controller
 
     public function getKabupaten(Request $request)
     {
-        $regencies = Regency::where("province_id",$request->province_id)->pluck("name","id");
-        return response()->json($regencies);
+        $id_provinsi = $request->id_provinsi;
+        $kabupatens = Regency::where('province_id', $id_provinsi)->get();
+        $options = "<option value=''>Pilih Kabupaten...</option>";
+
+        foreach ($kabupatens as $kabupaten) {
+            // Append each new option to the $options string
+            $options .= "<option value='$kabupaten->id'>$kabupaten->name</option>";
+        }
+
+        // Return the options string as a response
+        return response()->json($options);
     }
+
 
 
     /**

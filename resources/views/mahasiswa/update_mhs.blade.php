@@ -237,29 +237,23 @@
                         </div>
 
                         <div class="form-floating mb-3">
-                            {{-- <label class="col-sm-4" for="exampleFormControlSelect1">Provinsi</label>
-                            <select class="col-sm-8 form-control" name="provinsi" id="provinsi">
+                            <label class="col-sm-4" for="provinsi">Provinsi</label>
+                            <select class="col-sm-8 form-control @error('provinsi') is-invalid @enderror" name="provinsi" id="provinsi">
                                 <option  value="">Pilih Provinsi...</option>
                                 @foreach ($provinces as $provinsi)
                                     <option value="{{ $provinsi->id }}" >{{ $provinsi->name }}</option>
                                 @endforeach
-                            </select> --}}
-
-                            <label class="col-sm-4 " for="provinsi">Provinsi</label>
-                            <input class="col-sm-8 @error('provinsi') is-invalid @enderror" name="provinsi" type="text" class="form-control" id="provinsi" value="{{ $attribute->provinsi }}">
+                            </select>
                             @error('provinsi')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
 
                         <div class="form-floating mb-3">
-                            {{-- <label class="col-sm-4" for="exampleFormControlSelect1">Kabupaten</label>
-                            <select class="col-sm-8 form-control" name="Kabupaten" id="Kabupaten">
+                            <label class="col-sm-4" for="kabupaten">Kabupaten</label>
+                            <select class="col-sm-8 form-control @error('kabupaten') is-invalid @enderror" name="kabupaten" id="kabupaten">
                                 <option  value="">Pilih Kabupaten...</option>
-                            </select> --}}
-
-                            <label class="col-sm-4 " for="kabupaten">Kabupaten</label>
-                            <input class="col-sm-8 @error('kabupaten') is-invalid @enderror" name="kabupaten" type="text" class="form-control" id="kabupaten" value="{{ $attribute->kabupaten }}">
+                            </select>
                             @error('kabupaten')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -289,8 +283,10 @@
             </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <script>
-        $(function(){
+        $(document).ready(function(){
             $.ajaxSetup({
                 headers:{
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -303,20 +299,23 @@
                 let id_provinsi = $('#provinsi').val();
 
                 $.ajax({
-                    type : 'POST'
-                    url:"{{ route('getKabupaten') }}",
+                    type : 'POST',
+                    url: "{{ route('getKabupaten') }}",
                     data:{
                         id_provinsi:id_provinsi
                     },
                     cache:false,
+
                     success:function(msg){
                         $('#kabupaten').html(msg);
-                    }
+                    },
+
+                    error:function(data){
+                        console.log(data);
+                    },
                 });
             })
         });
     </script>
-
-
 </body>
 @endsection

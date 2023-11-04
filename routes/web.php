@@ -43,16 +43,19 @@ Route::middleware(['isOperator'])->group(function(){
 Route::middleware(['isMahasiswa'])->group(function(){
     Route::get('mahasiswa/dashboard_mhs',[MahasiswaController::class, 'index'])-> name('dashboard_mhs');
     Route::get('mahasiswa/update_mhs',[MahasiswaController::class, 'edit'])-> name('update_mhs');
+    Route::put('mahasiswa/update_mhs',[MahasiswaController::class, 'update'])-> name('update_mhs');
 
     // getKabupaten
     Route::post('mahasiswa/kabupaten',[MahasiswaController::class, 'getKabupaten'])-> name('getKabupaten');
-    Route::put('mahasiswa/update_mhs',[MahasiswaController::class, 'update'])-> name('update_mhs');
 
-    //
+    // view progress
     Route::get('mahasiswa/irs',[MahasiswaController::class, 'irs'])-> name('irs_mhs');
     Route::get('mahasiswa/khs',[MahasiswaController::class, 'khs'])-> name('khs');
     Route::get('mahasiswa/pkl',[MahasiswaController::class, 'pkl'])-> name('pkl');
     Route::get('mahasiswa/skripsi',[MahasiswaController::class, 'skripsi'])-> name('skripsi');
+
+    // import progress
+    Route::post('mahasiswa/irs',[MahasiswaController::class, 'irs_import'])-> name('irs_import');
 });
 
 

@@ -194,7 +194,7 @@
                             </div>
                         </div>
                         <br>
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label for="status" class="col-sm-2 col-form-label">Status PKL:</label>
                             <div class="col-sm-10">
                                 <select class="form-control" id="status" style="width: 16cm">
@@ -204,8 +204,8 @@
                                     <option value="Lulus">Lulus</option>
                                 </select>
                             </div>
-                        </div>
-                        <br>
+                        </div> --}}
+                        {{-- <br> --}}
                         <div class="form-group row">
                             <label for="nilai" class="col-sm-2 col-form-label">Status Laporan:</label>
                             <div class="col-sm-10">
