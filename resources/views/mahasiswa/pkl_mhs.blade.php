@@ -1,5 +1,5 @@
 @extends('template') @section('content') <div id="wrapper">
-  <!-- Navigation -->
+    <!-- Navigation -->
   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -161,159 +161,78 @@
     </div>
     <!-- /.navbar-collapse -->
 </nav>
-
-
-  <div id="page-wrapper">
-    <div class="container-fluid">
-      <!-- Page Heading -->
-      <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">
-                <a href="{{ route('dashboard_mhs') }}" >Dashboard</a>
-            </h1>
-
-          <ol class="breadcrumb">
-            <li class="active">
-                <a href="{{ route('dashboard_mhs') }}" >Dashboard</a>
-            </li>
-          </ol>
+    <div id="page-wrapper">
+      <div class="container-fluid">
+        <!-- Page Heading -->
+        <div class="row">
+          <div class="col-lg-12">
+            <h1 class="page-header"> Praktik Kerja Lapangan </h1>
+            <ol class="breadcrumb">
+              <li class="active">
+                <i class="fa fa-dashboard"></i> <a href="{{ route('dashboard_mhs') }}">Dashboard/</a> <i class="fa fa-tasks"></i> <a href="{{ route('generate') }}"></a>Praktik Kerja Lapangan
+              </li>
+            </ol>
+          </div>
         </div>
-      </div>
-      <!-- /.row -->
-      <!-- /.row -->
-      <div class="row">
+        <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">
+        <!-- Page Heading -->
+
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">
+    <div class="row">
         <div class="col-lg-11">
           <section>
-            {{-- container detail --}}
             <div class="card1">
-              <div class="card ">
-
-                {{-- PROFILE PICTURE --}}
-                @if ($attribute->foto != null)
-                    {{-- jika melakukan update foto --}}
-                    <div class="left-container  text-center" style="max-height: 350px; overflow:hidden;">
-                        <br><br>
-                        <img src="{{ asset('storage/' . $attribute->foto) }}" class=" imgpr rounded" alt="{{ $attribute->nama }}">
-                    </div>
-                @else
-                    {{-- jika tdk upadate foto --}}
-                    <div class="left-container">
-                        <br><br>
-                        <img class="imgpr" src="https://media.istockphoto.com/id/1337144146/vector/default-avatar-profile-icon-vector.jpg?s=612x612&w=0&k=20&c=BIbFwuv7FxTWvh5S3vB6bkT0Qv8Vn8N5Ffseq84ClGI=" alt="{{ $attribute->nama }}">
-                    </div>
-                @endif
-
-                <div class="right-container">
-                  <table>
-                    {{-- button edit --}}
-                    <a href="{{ route('update_mhs') }}" class="edit-button btn">
-                        <i class="fa fa-edit"> Edit</i>
-                    </a>
-
-                    <br>
-                    <tr>
-                      <td>Nama</td>
-                      <td>&nbsp;:&nbsp;</td>
-                      <td class="value">{{ $attribute->nama }}</td>
-                    </tr>
-                    <tr>
-                      <td>NIM</td>
-                      <td>&nbsp;: </td>
-                      <td class="value">{{ $attribute->nim }}</td>
-                    </tr>
-                    <tr>
-                      <td>Email</td>
-                      <td>&nbsp;: </td>
-                      <td class="value">{{ $attribute->email }}</td>
-                    </tr>
-                    <tr>
-                      <td>Status</td>
-                      <td>&nbsp;: </td>
-                      <td class="value"> {{ $attribute->status }}</td>
-                    </tr>
-                  </table>
+              <div class="cardpkl ">
+                <div class="left-container1">
                 </div>
-
+                <div class="right-container">
+                    <form action="">
+                        <div class="form-group row">
+                            <label for="judulpkl" class="col-sm-2 col-form-label">Judul:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="judulpkl" name="judulpkl" style="width: 16cm">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group row">
+                            <label for="status" class="col-sm-2 col-form-label">Status PKL:</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" id="status" style="width: 16cm">
+                                    <option> </option>
+                                    <option value=""></option>
+                                    <option value="Belum Ambil">Belum Ambil</option>
+                                    <option value="Lulus">Lulus</option>
+                                </select>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group row">
+                            <label for="nilai" class="col-sm-2 col-form-label">Status Laporan:</label>
+                            <div class="col-sm-10">
+                                <input type="file" class="form-control" id="nilai" style="width: 16cm">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group row">
+                            <label for="nilai" class="col-sm-2 col-form-label">Nilai:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="nilai" style="width: 16cm">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <h2 for="nilai" class="col-sm-2 col-form-label">Belum Diverifikasi</h2>
+                        </div>
+                    </form>
+                </div>
               </div>
           </section>
-
-
         </div>
       </div>
-      <br>
-
-
-      <div class="panel panel-red">
-        <div class="panel-heading">
-          <div>
-            <i class="fa fa-fw fa-columns fa-3x"></i>
-          </div>
-        </div>
-        <a href="{{ route('irs') }}">
-          <div class="panel-footer">
-            <span class="pull-left">IRS</span>
-            <span class="pull-right">
-              <i class="fa fa-arrow-circle-right"></i>
-            </span>
-            <div class="clearfix"></div>
-          </div>
-        </a>
-      </div>
-      <div class="panel panel-red">
-        <div class="panel-heading">
-          <div>
-            <i class="fa fa-fw fa-file-text-o fa-3x"></i>
-          </div>
-        </div>
-        <a href="{{ route('khs') }}">
-          <div class="panel-footer">
-            <span class="pull-left">KHS</span>
-            <span class="pull-right">
-              <i class="fa fa-arrow-circle-right"></i>
-            </span>
-            <div class="clearfix"></div>
-          </div>
-        </a>
-      </div>
-      <div class="panel panel-red">
-        <div class="panel-heading">
-          <div>
-            <i class="fa fa-fw fa-tasks fa-3x"></i>
-          </div>
-        </div>
-        <a href="{{ route('pkl') }}">
-          <div class="panel-footer">
-            <span class="pull-left">PKL</span>
-            <span class="pull-right">
-              <i class="fa fa-arrow-circle-right"></i>
-            </span>
-            <div class="clearfix"></div>
-          </div>
-        </a>
-      </div>
-      <div class="panel panel-red">
-        <div class="panel-heading">
-          <div>
-            <i class="fa fa-fw 	fa-newspaper-o fa-3x"></i>
-          </div>
-        </div>
-        <a href="{{ route('skripsi') }}">
-          <div class="panel-footer">
-            <span class="pull-left">Skripsi</span>
-            <span class="pull-right">
-              <i class="fa fa-arrow-circle-right"></i>
-            </span>
-            <div class="clearfix"></div>
-          </div>
-        </a>
-      </div>
-    </div>
-    <br>
-    <br>
-  </div>
-  <!-- /.row -->
-</div>
-<!-- /.container-fluid -->
-</div>
-<!-- /#page-wrapper -->
-</div> @endsection
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+      </div> @endsection

@@ -41,6 +41,22 @@ class MahasiswaController extends Controller
 
     }
 
+    public function pkl()
+    {
+        $attribute=Auth::guard('mhs')->user();
+        // dd($attribute);
+        return view('mahasiswa/pkl_mhs',['attribute'=>$attribute]);
+
+    }
+
+    public function skripsi()
+    {
+        $attribute=Auth::guard('mhs')->user();
+        // dd($attribute);
+        return view('mahasiswa/skripsi_mhs',['attribute'=>$attribute]);
+
+    }
+
     // public function update_mhs()
     // {
     //     $attribute=Auth::guard('mhs')->user();

@@ -47,15 +47,19 @@ Route::middleware(['isMahasiswa'])->group(function(){
     // getKabupaten
     Route::post('mahasiswa/kabupaten',[MahasiswaController::class, 'getKabupaten'])-> name('getKabupaten');
     Route::put('mahasiswa/update_mhs',[MahasiswaController::class, 'update'])-> name('update_mhs');
+
+    //
     Route::get('mahasiswa/irs',[MahasiswaController::class, 'irs'])-> name('irs');
     Route::get('mahasiswa/khs',[MahasiswaController::class, 'khs'])-> name('khs');
-
+    Route::get('mahasiswa/irs',[MahasiswaController::class, 'pkl'])-> name('pkl');
+    Route::get('mahasiswa/irs',[MahasiswaController::class, 'skripsi'])-> name('skripsi');
 });
 
 
 Route::middleware(['isDosenWali'])->group(function(){
     Route::get('dosenwali/dashboard_dsn',[DosenwaliController::class, 'index'])-> name('dashboard_dsn');
 });
+
 
 Route::middleware(['isDepartemen'])->group(function(){
     Route::get('departemen/dashboard_dpt',[DepartemenController::class, 'index'])-> name('dashboard_dpt');
