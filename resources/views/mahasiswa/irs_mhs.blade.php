@@ -253,7 +253,7 @@
                 </div>
                   <div class="panel-footer">
                     <span class="pull-right">
-                        <a href="{{ route('irs') }}">
+                        <a href="{{ route('irs_mhs') }}">
                         <i class="fa fa-arrow-circle-right"></i>
                     </span>
                     <h4>Semester 1 </h4>

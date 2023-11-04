@@ -49,10 +49,10 @@ Route::middleware(['isMahasiswa'])->group(function(){
     Route::put('mahasiswa/update_mhs',[MahasiswaController::class, 'update'])-> name('update_mhs');
 
     //
-    Route::get('mahasiswa/irs',[MahasiswaController::class, 'irs'])-> name('irs');
+    Route::get('mahasiswa/irs',[MahasiswaController::class, 'irs'])-> name('irs_mhs');
     Route::get('mahasiswa/khs',[MahasiswaController::class, 'khs'])-> name('khs');
-    Route::get('mahasiswa/irs',[MahasiswaController::class, 'pkl'])-> name('pkl');
-    Route::get('mahasiswa/irs',[MahasiswaController::class, 'skripsi'])-> name('skripsi');
+    Route::get('mahasiswa/pkl',[MahasiswaController::class, 'pkl'])-> name('pkl');
+    Route::get('mahasiswa/skripsi',[MahasiswaController::class, 'skripsi'])-> name('skripsi');
 });
 
 

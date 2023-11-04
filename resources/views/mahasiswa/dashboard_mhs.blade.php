@@ -249,7 +249,7 @@
             <i class="fa fa-fw fa-columns fa-3x"></i>
           </div>
         </div>
-        <a href="{{ route('irs') }}">
+        <a href="irs">
           <div class="panel-footer">
             <span class="pull-left">IRS</span>
             <span class="pull-right">
@@ -265,7 +265,7 @@
             <i class="fa fa-fw fa-file-text-o fa-3x"></i>
           </div>
         </div>
-        <a href="{{ route('khs') }}">
+        <a href="khs">
           <div class="panel-footer">
             <span class="pull-left">KHS</span>
             <span class="pull-right">
@@ -281,7 +281,7 @@
             <i class="fa fa-fw fa-tasks fa-3x"></i>
           </div>
         </div>
-        <a href="{{ route('pkl') }}">
+        <a href="pkl">
           <div class="panel-footer">
             <span class="pull-left">PKL</span>
             <span class="pull-right">
@@ -297,7 +297,7 @@
             <i class="fa fa-fw 	fa-newspaper-o fa-3x"></i>
           </div>
         </div>
-        <a href="{{ route('skripsi') }}">
+        <a href="skripsi">
           <div class="panel-footer">
             <span class="pull-left">Skripsi</span>
             <span class="pull-right">
